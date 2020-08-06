@@ -1,10 +1,8 @@
 import React from 'react';
 
-function Todos() {
+function Todos({ todo, index }) {
   return (
-    <div className="App">
-      <h1>Hello!</h1>
-    </div>
+    <p>{ todo.title }</p>
   );
 }
 
