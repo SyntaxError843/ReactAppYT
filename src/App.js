@@ -3,6 +3,20 @@ import './App.css';
 import Todos from './components/Todos';
 
 function App() {
+
+  const markComplete = id => {
+    const newTodos = todos.map(todo => {
+      if(todo.id === id) todo.isCompleted = !todo.isCompleted;
+      return todo;
+    });
+    setTodos(newTodos);
+  }
+
+  const deleteTodo = id => {
+    const newTodos = [...todos.filter(todo => todo.id !== id)]
+    setTodos(newTodos);
+  }
+
   const [todos, setTodos] = useState(
     [
       {
@@ -26,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <div className="todo-list">
-        <Todos todos={todos} />
+        <Todos todos={todos} markComplete={markComplete} deleteTodo={deleteTodo}/>
       </div>
     </div>
   );
