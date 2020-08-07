@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Todos from './components/Todos';
+import Header from './components/layout/Header';
 
 function App() {
 
@@ -40,7 +41,12 @@ function App() {
   return (
     <div className="App">
       <div className="todo-list">
-        <Todos todos={todos} markComplete={markComplete} deleteTodo={deleteTodo}/>
+        <Header />
+        <Todos
+          todos={todos}
+          markComplete={markComplete}
+          deleteTodo={deleteTodo}
+        />
       </div>
     </div>
   );
