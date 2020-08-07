@@ -26,11 +26,7 @@ function App() {
   return (
     <div className="App">
       <div className="todo-list">
-        {
-          todos.map((todo, index) => (
-            <Todos key={todo.id} index={index} todo={todo}></Todos>
-          ))
-        }
+        <Todos todos={todos} />
       </div>
     </div>
   );

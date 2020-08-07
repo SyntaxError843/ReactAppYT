@@ -1,8 +1,11 @@
 import React from 'react';
+import TodoItem from './TodoItem'
 
-function Todos({ todo, index }) {
+function Todos({ todos }) {
   return (
-    <p>{ todo.title }</p>
+    todos.map(todo => (
+      <TodoItem todo={ todo } />
+    ))
   );
 }
 
