@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/layout/Header";
 import Todos from "./components/Todos";
-import TodoForm from "./components/todoForm";
+import TodoForm from "./components/TodoForm";
+import About from "./components/pages/About";
 
 function App() {
   const markComplete = (id) => {
@@ -48,17 +50,26 @@ function App() {
   ]);
 
   return (
-    <div className="App">
-      <Header />
-      <div className="container">
-        <TodoForm addTodo={addTodo} />
-        <Todos
-          todos={todos}
-          markComplete={markComplete}
-          deleteTodo={deleteTodo}
+    <Router>
+      <div className="App">
+        <Header />
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <div className="container">
+              <TodoForm addTodo={addTodo} />
+              <Todos
+                todos={todos}
+                markComplete={markComplete}
+                deleteTodo={deleteTodo}
+              />
+            </div>
+          )}
         />
+        <Route path="/about" component={About} />
       </div>
-    </div>
+    </Router>
   );
 }
 
