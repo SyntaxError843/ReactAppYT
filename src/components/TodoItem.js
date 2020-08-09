@@ -9,7 +9,7 @@ function TodoItem({ todo, markComplete, deleteTodo }) {
         onChange={() => {
           markComplete(todo.id);
         }}
-        checked={todo.isCompleted}
+        checked={todo.completed}
       />
       {todo.title}
       <button style={btnStyle} onClick={() => deleteTodo(todo.id)}>
@@ -21,6 +21,8 @@ function TodoItem({ todo, markComplete, deleteTodo }) {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
 
 const getSyle = (todo) => {
@@ -28,7 +30,7 @@ const getSyle = (todo) => {
     background: "#f4f4f4",
     padding: "10px",
     borderBottom: "1px #ccc dotted",
-    textDecoration: todo.isCompleted ? "line-through" : "",
+    textDecoration: todo.completed ? "line-through" : "",
   };
 };
 
